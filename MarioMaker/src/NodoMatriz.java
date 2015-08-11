@@ -150,6 +150,14 @@ public class NodoMatriz extends JLabel{
         return derecha!=null;
     }
     
+    public boolean TieneAbajo(){
+        return abajo!=null;
+    }
+    
+    public boolean TieneIzquierda(){
+        return izquierda!=null;
+    }
+    
     public boolean TieneObjeto(){
         return objeto!=null;
     }

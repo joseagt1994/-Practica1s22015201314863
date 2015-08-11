@@ -1,4 +1,5 @@
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /*
@@ -17,6 +18,18 @@ public class Matriz{
     NodoMatriz inicio;
     int contador=0;
     
+    static private Matriz lista = null;
+    
+    private Matriz(){}
+    
+        static public Matriz getInstancia(){
+            if(lista==null){
+                lista = new Matriz();
+                }
+            return lista;
+        
+    }
+    
     public void Inicio(){
         if(inicio == null){
             inicio = new NodoMatriz(0,0);
@@ -25,6 +38,115 @@ public class Matriz{
             inicio.setID(contador);
             contador++;
         }
+    }
+    
+    public String[] getCodigo(){
+        String variable ="";
+        String relaciones = "";
+        String[] valores = new String[2];
+        
+        NodoMatriz temp = inicio;
+        
+            if(temp.TieneObjeto()){
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ temp.getObject().toString()+'"' + "]"+"\n";
+            }else{
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ "Blanco" +'"'+ "]"+"\n";
+            }
+            if(temp.TieneArriba()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getArriba().getID()+"\n";
+            }
+            if(temp.TieneDerecha()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+            }
+            if(temp.TieneAbajo()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
+            }
+            if(temp.TieneIzquierda()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+            }
+
+        while(temp.TieneDerecha()){
+            
+            temp = temp.getDerecha();
+            
+            if(temp.TieneObjeto()){
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ temp.getObject().toString()+'"' + "]"+"\n";
+            }else{
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ "Blanco" +'"'+ "]"+"\n";
+            }
+            if(temp.TieneArriba()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getArriba().getID()+"\n";
+            }
+            if(temp.TieneDerecha()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+            }
+            if(temp.TieneAbajo()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
+            }
+            if(temp.TieneIzquierda()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+            }
+
+        }
+
+        temp = inicio.getArriba();
+        while(temp.TieneArriba()){
+            
+            
+            if(temp.TieneObjeto()){
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ temp.getObject().toString()+'"' + "]"+"\n";
+            }else{
+                variable+= "nodo" + temp.getID() + "[label=" +'"'+ "Blanco" +'"'+ "]"+"\n";
+            }
+            if(temp.TieneArriba()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getArriba().getID()+"\n";
+            }
+            if(temp.TieneDerecha()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+            }
+            if(temp.TieneAbajo()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
+            }
+            if(temp.TieneIzquierda()){
+                relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+            }
+            
+            
+            
+            NodoMatriz temp2 = temp;
+            
+            while(temp2.TieneDerecha()){
+                
+                
+                if(temp2.TieneObjeto()){
+                variable+= "nodo" + temp2.getID() + "[label=" +'"'+ temp2.getObject().toString()+'"' + "]"+"\n";
+                }else{
+                variable+= "nodo" + temp2.getID() + "[label=" +'"'+ "Blanco" +'"'+ "]"+"\n";
+                }
+                if(temp2.TieneArriba()){
+                relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getArriba().getID()+"\n";
+                }
+                if(temp2.TieneDerecha()){
+                relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getDerecha().getID()+"\n";
+                }
+                if(temp2.TieneAbajo()){
+                relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getAbajo().getID()+"\n";
+                }
+                if(temp2.TieneIzquierda()){
+                relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getIzquierda().getID()+"\n";
+                }
+                
+                temp2 = temp2.getDerecha();
+                
+            }
+            
+            temp = temp.getArriba();
+        }
+        
+        valores[0]=variable;
+        valores[1]=relaciones;
+        
+        return valores;
     }
     
     public Object[][] getMatrizInicial(){

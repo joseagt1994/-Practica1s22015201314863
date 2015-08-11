@@ -307,39 +307,33 @@ public class Listado extends javax.swing.JFrame {
                         System.out.println(fila+" "+ columna);
                     if(columna==3){
                         
+                        String nombre = String.valueOf(jTable1.getValueAt(fila, 2));
+                        numero=fila;
                         tipo=true;
-                        switch (cadena.getClass().toString()){
+                        switch (objetos[fila].getClass().toString()){
                 case "class Suelo":
-                    Suelo s = (Suelo) objetos[fila];
-                    list.Editar(numero, s);
+                    list.Editar(numero, new Suelo(nombre));
                     break;
                 case "class Pared":
-                    Pared p = (Pared) objetos[fila];
-                    list.Editar(numero, p);
+                    list.Editar(numero, new Pared(nombre));
                     break;
                 case "class Goomba":
-                    Goomba g = (Goomba) objetos[fila];
-                    list.Editar(numero, g);
+                    list.Editar(numero, new Goomba(nombre));
                     break;
                 case "class Koopa":
-                    Koopa k = (Koopa) objetos[fila];
-                    list.Editar(numero, k);
+                    list.Editar(numero, new Koopa(nombre));
                     break;
                 case "class Ficha":
-                    Ficha f = (Ficha) objetos[fila];
-                    list.Editar(numero, f);
+                    list.Editar(numero, new Ficha(nombre));
                     break;
                 case "class Hongo":
-                    Hongo h = (Hongo) objetos[fila];
-                    list.Editar(numero, h);
+                    list.Editar(numero, new Hongo(nombre));
                     break;
                 case "class Personaje":
-                    Personaje pp = (Personaje) objetos[fila];
-                    list.Editar(numero, pp);
+                    list.Editar(numero, new Personaje(nombre));
                     break;
                 case "class Castillo":
-                    Castillo c = (Castillo) objetos[fila];
-                    list.Editar(numero, c);
+                    list.Editar(numero, new Castillo(nombre));
                     break;
                 default:
                     break; 

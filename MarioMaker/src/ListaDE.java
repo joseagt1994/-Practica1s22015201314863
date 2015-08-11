@@ -99,6 +99,15 @@ public class ListaDE extends NodoDE{
             contador++;
         }
         
+        if(temp.getID()==numero){
+            if(temp.getAnterior()!=null){
+                temp.getAnterior().setSiguiente(temp.getSiguiente());
+            }
+                if(temp.getSiguiente()!=null){
+                temp.getSiguiente().setAnterior(temp.getAnterior());
+            }
+        }
+        
         
 //        temp.setAnterior(null);
 //        temp.setSiguiente(null);
@@ -109,6 +118,11 @@ public class ListaDE extends NodoDE{
     public boolean Editar(int numero,Object obj){
         
         NodoDE temp = inicio;
+        
+        if(numero==0){
+            temp.setObjeto(obj);
+        }
+        
         while(temp.TieneSiguiente()){
             temp = temp.getSiguiente();
             
@@ -122,28 +136,27 @@ public class ListaDE extends NodoDE{
     
     public String[] getCodigo(){
         String[] cadenas = new String[2];
-        int c=0;
         String codigo="";
         String valores="";
         NodoDE temp = inicio;
         while(temp.TieneSiguiente()){
             
-            valores+= "nodo " + c + "[label=" + temp.getObjeto().toString() + "]"+"/n";
+            valores+= "nodo" + temp.getID() + "[label=" +'"'+temp.getObjeto().toString()+'"'+ "];"+"\n";
             if(temp.TieneAnterior()){
-                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAnterior().getID()+"/n";
+                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAnterior().getID()+"\n";
             }
             if(temp.TieneSiguiente()){
-                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getSiguiente().getID()+"/n";
+                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getSiguiente().getID()+"\n";
             }
             temp = temp.getSiguiente();
             
         }
-        valores+= "nodo " + c + "[label=" + temp.getObjeto().toString() + "]"+"/n";
+        valores+= "nodo" + temp.getID() + "[label=" + '"'+temp.getObjeto().toString()+'"'+ "]"+"\n";
             if(temp.TieneAnterior()){
-                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAnterior().getID()+"/n";
+                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAnterior().getID()+"\n";
             }
             if(temp.TieneSiguiente()){
-                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getSiguiente().getID()+"/n";
+                codigo+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getSiguiente().getID()+"\n";
             }
             
             cadenas[0]=valores;
