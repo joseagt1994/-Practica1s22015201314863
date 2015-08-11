@@ -57,12 +57,14 @@ public class Matriz{
             }
             if(temp.TieneDerecha()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getDerecha().getID()+ "}";
             }
             if(temp.TieneAbajo()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
             }
             if(temp.TieneIzquierda()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getIzquierda().getID()+ "}";
             }
 
         while(temp.TieneDerecha()){
@@ -79,19 +81,24 @@ public class Matriz{
             }
             if(temp.TieneDerecha()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getDerecha().getID()+ "}";
+
             }
             if(temp.TieneAbajo()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
             }
             if(temp.TieneIzquierda()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getIzquierda().getID()+ "}";
             }
 
         }
 
-        temp = inicio.getArriba();
+        temp = inicio;
+        
         while(temp.TieneArriba()){
             
+            temp = temp.getArriba();
             
             if(temp.TieneObjeto()){
                 variable+= "nodo" + temp.getID() + "[label=" +'"'+ temp.getObject().toString()+'"' + "]"+"\n";
@@ -103,12 +110,15 @@ public class Matriz{
             }
             if(temp.TieneDerecha()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getDerecha().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getDerecha().getID()+ "}";
+
             }
             if(temp.TieneAbajo()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getAbajo().getID()+"\n";
             }
             if(temp.TieneIzquierda()){
                 relaciones+= "nodo"+temp.getID()+" -- " + "nodo"+temp.getIzquierda().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp.getID() +" "+ "nodo"+temp.getIzquierda().getID()+ "}";
             }
             
             
@@ -117,6 +127,7 @@ public class Matriz{
             
             while(temp2.TieneDerecha()){
                 
+                temp2 = temp2.getDerecha();
                 
                 if(temp2.TieneObjeto()){
                 variable+= "nodo" + temp2.getID() + "[label=" +'"'+ temp2.getObject().toString()+'"' + "]"+"\n";
@@ -128,19 +139,22 @@ public class Matriz{
                 }
                 if(temp2.TieneDerecha()){
                 relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getDerecha().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp2.getID() +" "+ "nodo"+temp2.getDerecha().getID()+ "}";
+
                 }
                 if(temp2.TieneAbajo()){
                 relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getAbajo().getID()+"\n";
                 }
                 if(temp2.TieneIzquierda()){
                 relaciones+= "nodo"+temp2.getID()+" -- " + "nodo"+temp2.getIzquierda().getID()+"\n";
+                relaciones+= "{rank=same;nodo" +temp2.getID() +" "+ "nodo"+temp2.getIzquierda().getID()+ "}";
                 }
                 
-                temp2 = temp2.getDerecha();
+                
                 
             }
             
-            temp = temp.getArriba();
+            
         }
         
         valores[0]=variable;

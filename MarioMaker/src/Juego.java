@@ -1,4 +1,8 @@
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -6,6 +10,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import javax.swing.TransferHandler;
@@ -27,14 +33,20 @@ public class Juego extends javax.swing.JFrame {
     int contador=0;
     int cmin=0;
     Matriz matriz = Matriz.getInstancia();
+    int velocidad = 30;
+    int xa=0;
     Object[][]objetosMatriz;
+    KeyEvent key;
+    Thread gameloop;
+    Image buffer;
+    Graphics g;
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
         
-        paint();
+        
         
         empezarTiempo();
         addKeyListener(new KeyListener() {
@@ -44,15 +56,25 @@ public class Juego extends javax.swing.JFrame {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
+                            key = e;
+                            
 //				r.keyReleased(e);
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
+                            System.out.println("Se presiono para mover");
+                            key = e;
+                            move();
+                            
 //				r.keyPressed(e);
 			}
 		});
 		setFocusable(true);
+                
+//                gameloop = new Thread(this);
+//                gameloop.start();
+            
     
     
     
@@ -75,9 +97,25 @@ public class Juego extends javax.swing.JFrame {
         t.stop();
     }
     
-    public void paint(){
+    public void move(){
+        if (key.getKeyCode() == KeyEvent.VK_LEFT)
+			xa = -velocidad;
+	if (key.getKeyCode() == KeyEvent.VK_RIGHT)
+			xa = velocidad;
+    }
+    
+    @Override
+    public void paint(Graphics g){
         
+        super.paint(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				RenderingHints.VALUE_ANTIALIAS_ON);
         objetosMatriz = matriz.getMatrizInicial();
+        
+//        jPanel1.removeAll();
+//        jPanel1.repaint();
+        
         
         for(int i=0;i<matriz.tamaño_y;i++){
             for(int j=0;j<matriz.tamaño_x;j++){
@@ -86,12 +124,16 @@ public class Juego extends javax.swing.JFrame {
                 NodoMatriz nodo = (NodoMatriz)objetosMatriz[i][j];
                 nodo.setX((j+1)*30);
                 nodo.setCX(j);
-                altura = jPanel1.getHeight();
                 nodo.setY(jPanel1.getHeight()-(30*(i+1)));
                 nodo.setCY(i);
                 if(nodo.TieneObjeto()){
                     nodo.setIcon(new ImageIcon(nodo.getRuta()));
                     nodo.setBounds(nodo.getX(),nodo.getY(),30,30);
+                    if(nodo.getObject().getClass().toString().equals("class Goomba")){
+                        Goomba goomba = new Goomba(jPanel1);
+                        goomba.setXY(nodo.getX(), nodo.getY());
+                        goomba.start();
+                    }
                 }else{
                     nodo.setIcon(null);
                     nodo.setBounds(nodo.getX(),nodo.getY(),30,30);
@@ -99,7 +141,7 @@ public class Juego extends javax.swing.JFrame {
                 
                 
 //                System.out.println("Objeto: " + nodo.getObject() + "Fila:"+nodo.getCY()+"Columna:"+nodo.getCX()+" "+"Ruta:" + nodo.getRuta());
-                jPanel1.add(nodo);
+//                jPanel1.add(nodo);
         }
             
         }
@@ -114,7 +156,6 @@ public class Juego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -124,22 +165,10 @@ public class Juego extends javax.swing.JFrame {
         punteo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         segundo1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
-        );
 
         jButton1.setText("Reiniciar");
 
@@ -166,6 +195,19 @@ public class Juego extends javax.swing.JFrame {
         jLabel2.setText("Vidas:");
 
         segundo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 391, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,6 +268,48 @@ public class Juego extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Imagen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Imagen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Imagen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Imagen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new Juego().setVisible(true);
+//                while(true){
+//                new Juego().move();
+//                new Juego().repaint();
+//            try {
+//                Thread.sleep(10);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//            }
+//        });
+//    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -239,9 +323,26 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel punteo;
     public static javax.swing.JLabel segundo;
     public static javax.swing.JLabel segundo1;
     // End of variables declaration//GEN-END:variables
+
+//    @Override
+//    public void run() {
+//        Thread t = Thread.currentThread();
+//        while(t==gameloop){
+//            try {
+//                repaint();
+//                Thread.sleep(50);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//    }
+
+    private void updatePaint(Juego aThis) {
+           }
 }

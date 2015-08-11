@@ -29,6 +29,7 @@ public class ListaDE extends NodoDE{
         if(inicio==null){
             inicio = new NodoDE(null,o,null);
             inicio.setID(tamaño);
+            fin = inicio;
             tamaño++;
             return true;
         }else{

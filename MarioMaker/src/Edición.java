@@ -686,6 +686,7 @@ public class Edición extends javax.swing.JFrame {
                         termino=true;
                         if(termino ==true){
                             l.setRuta(l.getIcon().toString());
+                            l.setObject(objeto(l.getIcon().toString(),objetos.length-1));
                         }
                     }
                     recibe.setIcon(Imagen(objetos[contador].getClass().toString(),contador));
@@ -697,6 +698,7 @@ public class Edición extends javax.swing.JFrame {
 //                        System.out.println(l.getIcon().toString());
 //                        System.out.println(contador-1);
                         String ruta = l.getIcon().toString();
+                        
                         if(termino==false){
                             l.setObject(objeto(ruta,contador-1));
                             l.setRuta(ruta);

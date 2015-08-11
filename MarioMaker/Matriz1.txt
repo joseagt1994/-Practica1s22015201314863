@@ -1,31 +1,327 @@
 graph grafica{
-nodo0[label="Pared@5ec8d624"]
-nodo2[label="Koopa@6a6bf7c"]
-nodo4[label="Ficha@1d4244dc"]
-nodo6[label="Blanco"]
-nodo1[label="Suelo@5b5804f0"]
-nodo1[label="Suelo@5b5804f0"]
-nodo3[label="Goomba@146340b9"]
-nodo5[label="Hongo@5a3d8a6"]
+nodo0[label="Blanco"]
+nodo2[label="Blanco"]
+nodo4[label="Suelo@77f84e66"]
+nodo6[label="Suelo@3fad3081"]
+nodo24[label="Suelo@73eb16b5"]
+nodo30[label="Blanco"]
+nodo36[label="Blanco"]
+nodo42[label="Suelo@4655edd0"]
+nodo48[label="Blanco"]
+nodo54[label="Blanco"]
+nodo60[label="Blanco"]
+nodo66[label="Blanco"]
+nodo1[label="Blanco"]
+nodo3[label="Blanco"]
+nodo5[label="Blanco"]
+nodo7[label="Goomba@102af4a3"]
+nodo25[label="Blanco"]
+nodo31[label="Blanco"]
+nodo37[label="Blanco"]
+nodo43[label="Goomba@214fba4f"]
+nodo49[label="Blanco"]
+nodo55[label="Blanco"]
+nodo61[label="Blanco"]
+nodo67[label="Blanco"]
+nodo8[label="Blanco"]
+nodo9[label="Blanco"]
+nodo10[label="Blanco"]
+nodo11[label="Blanco"]
+nodo26[label="Blanco"]
+nodo32[label="Pared@428636ff"]
+nodo38[label="Blanco"]
+nodo44[label="Blanco"]
+nodo50[label="Blanco"]
+nodo56[label="Blanco"]
+nodo62[label="Blanco"]
+nodo68[label="Blanco"]
+nodo12[label="Blanco"]
+nodo13[label="Blanco"]
+nodo14[label="Blanco"]
+nodo15[label="Blanco"]
+nodo27[label="Blanco"]
+nodo33[label="Koopa@63e80997"]
+nodo39[label="Blanco"]
+nodo45[label="Blanco"]
+nodo51[label="Blanco"]
+nodo57[label="Blanco"]
+nodo63[label="Blanco"]
+nodo69[label="Blanco"]
+nodo16[label="Blanco"]
+nodo17[label="Blanco"]
+nodo18[label="Blanco"]
+nodo19[label="Ficha@489df5e1"]
+nodo28[label="Blanco"]
+nodo34[label="Blanco"]
+nodo40[label="Blanco"]
+nodo46[label="Blanco"]
+nodo52[label="Blanco"]
+nodo58[label="Blanco"]
+nodo64[label="Blanco"]
+nodo70[label="Blanco"]
+nodo20[label="Blanco"]
+nodo21[label="Blanco"]
+nodo22[label="Blanco"]
+nodo23[label="Blanco"]
+nodo29[label="Blanco"]
+nodo35[label="Blanco"]
+nodo41[label="Blanco"]
+nodo47[label="Blanco"]
+nodo53[label="Blanco"]
+nodo59[label="Blanco"]
+nodo65[label="Blanco"]
+nodo71[label="Blanco"]
 
 nodo0 -- nodo1
 nodo0 -- nodo2
-nodo2 -- nodo3
+{rank=same;nodo0 nodo2}nodo2 -- nodo3
 nodo2 -- nodo4
-nodo2 -- nodo0
-nodo4 -- nodo5
+{rank=same;nodo2 nodo4}nodo2 -- nodo0
+{rank=same;nodo2 nodo0}nodo4 -- nodo5
 nodo4 -- nodo6
-nodo4 -- nodo2
-nodo6 -- nodo7
-nodo6 -- nodo4
+{rank=same;nodo4 nodo6}nodo4 -- nodo2
+{rank=same;nodo4 nodo2}nodo6 -- nodo7
+nodo6 -- nodo24
+{rank=same;nodo6 nodo24}nodo6 -- nodo4
+{rank=same;nodo6 nodo4}nodo24 -- nodo25
+nodo24 -- nodo30
+{rank=same;nodo24 nodo30}nodo24 -- nodo6
+{rank=same;nodo24 nodo6}nodo30 -- nodo31
+nodo30 -- nodo36
+{rank=same;nodo30 nodo36}nodo30 -- nodo24
+{rank=same;nodo30 nodo24}nodo36 -- nodo37
+nodo36 -- nodo42
+{rank=same;nodo36 nodo42}nodo36 -- nodo30
+{rank=same;nodo36 nodo30}nodo42 -- nodo43
+nodo42 -- nodo48
+{rank=same;nodo42 nodo48}nodo42 -- nodo36
+{rank=same;nodo42 nodo36}nodo48 -- nodo49
+nodo48 -- nodo54
+{rank=same;nodo48 nodo54}nodo48 -- nodo42
+{rank=same;nodo48 nodo42}nodo54 -- nodo55
+nodo54 -- nodo60
+{rank=same;nodo54 nodo60}nodo54 -- nodo48
+{rank=same;nodo54 nodo48}nodo60 -- nodo61
+nodo60 -- nodo66
+{rank=same;nodo60 nodo66}nodo60 -- nodo54
+{rank=same;nodo60 nodo54}nodo66 -- nodo67
+nodo66 -- nodo60
+{rank=same;nodo66 nodo60}nodo1 -- nodo8
 nodo1 -- nodo3
-nodo1 -- nodo0
-nodo1 -- nodo3
-nodo1 -- nodo0
+{rank=same;nodo1 nodo3}nodo1 -- nodo0
+nodo3 -- nodo9
 nodo3 -- nodo5
-nodo3 -- nodo2
+{rank=same;nodo3 nodo5}nodo3 -- nodo2
 nodo3 -- nodo1
+{rank=same;nodo3 nodo1}nodo5 -- nodo10
 nodo5 -- nodo7
-nodo5 -- nodo4
+{rank=same;nodo5 nodo7}nodo5 -- nodo4
 nodo5 -- nodo3
-}
+{rank=same;nodo5 nodo3}nodo7 -- nodo11
+nodo7 -- nodo25
+{rank=same;nodo7 nodo25}nodo7 -- nodo6
+nodo7 -- nodo5
+{rank=same;nodo7 nodo5}nodo25 -- nodo26
+nodo25 -- nodo31
+{rank=same;nodo25 nodo31}nodo25 -- nodo24
+nodo25 -- nodo7
+{rank=same;nodo25 nodo7}nodo31 -- nodo32
+nodo31 -- nodo37
+{rank=same;nodo31 nodo37}nodo31 -- nodo30
+nodo31 -- nodo25
+{rank=same;nodo31 nodo25}nodo37 -- nodo38
+nodo37 -- nodo43
+{rank=same;nodo37 nodo43}nodo37 -- nodo36
+nodo37 -- nodo31
+{rank=same;nodo37 nodo31}nodo43 -- nodo44
+nodo43 -- nodo49
+{rank=same;nodo43 nodo49}nodo43 -- nodo42
+nodo43 -- nodo37
+{rank=same;nodo43 nodo37}nodo49 -- nodo50
+nodo49 -- nodo55
+{rank=same;nodo49 nodo55}nodo49 -- nodo48
+nodo49 -- nodo43
+{rank=same;nodo49 nodo43}nodo55 -- nodo56
+nodo55 -- nodo61
+{rank=same;nodo55 nodo61}nodo55 -- nodo54
+nodo55 -- nodo49
+{rank=same;nodo55 nodo49}nodo61 -- nodo62
+nodo61 -- nodo67
+{rank=same;nodo61 nodo67}nodo61 -- nodo60
+nodo61 -- nodo55
+{rank=same;nodo61 nodo55}nodo67 -- nodo68
+nodo67 -- nodo66
+nodo67 -- nodo61
+{rank=same;nodo67 nodo61}nodo8 -- nodo12
+nodo8 -- nodo9
+{rank=same;nodo8 nodo9}nodo8 -- nodo1
+nodo9 -- nodo13
+nodo9 -- nodo10
+{rank=same;nodo9 nodo10}nodo9 -- nodo3
+nodo9 -- nodo8
+{rank=same;nodo9 nodo8}nodo10 -- nodo14
+nodo10 -- nodo11
+{rank=same;nodo10 nodo11}nodo10 -- nodo5
+nodo10 -- nodo9
+{rank=same;nodo10 nodo9}nodo11 -- nodo15
+nodo11 -- nodo26
+{rank=same;nodo11 nodo26}nodo11 -- nodo7
+nodo11 -- nodo10
+{rank=same;nodo11 nodo10}nodo26 -- nodo27
+nodo26 -- nodo32
+{rank=same;nodo26 nodo32}nodo26 -- nodo25
+nodo26 -- nodo11
+{rank=same;nodo26 nodo11}nodo32 -- nodo33
+nodo32 -- nodo38
+{rank=same;nodo32 nodo38}nodo32 -- nodo31
+nodo32 -- nodo26
+{rank=same;nodo32 nodo26}nodo38 -- nodo39
+nodo38 -- nodo44
+{rank=same;nodo38 nodo44}nodo38 -- nodo37
+nodo38 -- nodo32
+{rank=same;nodo38 nodo32}nodo44 -- nodo45
+nodo44 -- nodo50
+{rank=same;nodo44 nodo50}nodo44 -- nodo43
+nodo44 -- nodo38
+{rank=same;nodo44 nodo38}nodo50 -- nodo51
+nodo50 -- nodo56
+{rank=same;nodo50 nodo56}nodo50 -- nodo49
+nodo50 -- nodo44
+{rank=same;nodo50 nodo44}nodo56 -- nodo57
+nodo56 -- nodo62
+{rank=same;nodo56 nodo62}nodo56 -- nodo55
+nodo56 -- nodo50
+{rank=same;nodo56 nodo50}nodo62 -- nodo63
+nodo62 -- nodo68
+{rank=same;nodo62 nodo68}nodo62 -- nodo61
+nodo62 -- nodo56
+{rank=same;nodo62 nodo56}nodo68 -- nodo69
+nodo68 -- nodo67
+nodo68 -- nodo62
+{rank=same;nodo68 nodo62}nodo12 -- nodo16
+nodo12 -- nodo13
+{rank=same;nodo12 nodo13}nodo12 -- nodo8
+nodo13 -- nodo17
+nodo13 -- nodo14
+{rank=same;nodo13 nodo14}nodo13 -- nodo9
+nodo13 -- nodo12
+{rank=same;nodo13 nodo12}nodo14 -- nodo18
+nodo14 -- nodo15
+{rank=same;nodo14 nodo15}nodo14 -- nodo10
+nodo14 -- nodo13
+{rank=same;nodo14 nodo13}nodo15 -- nodo19
+nodo15 -- nodo27
+{rank=same;nodo15 nodo27}nodo15 -- nodo11
+nodo15 -- nodo14
+{rank=same;nodo15 nodo14}nodo27 -- nodo28
+nodo27 -- nodo33
+{rank=same;nodo27 nodo33}nodo27 -- nodo26
+nodo27 -- nodo15
+{rank=same;nodo27 nodo15}nodo33 -- nodo34
+nodo33 -- nodo39
+{rank=same;nodo33 nodo39}nodo33 -- nodo32
+nodo33 -- nodo27
+{rank=same;nodo33 nodo27}nodo39 -- nodo40
+nodo39 -- nodo45
+{rank=same;nodo39 nodo45}nodo39 -- nodo38
+nodo39 -- nodo33
+{rank=same;nodo39 nodo33}nodo45 -- nodo46
+nodo45 -- nodo51
+{rank=same;nodo45 nodo51}nodo45 -- nodo44
+nodo45 -- nodo39
+{rank=same;nodo45 nodo39}nodo51 -- nodo52
+nodo51 -- nodo57
+{rank=same;nodo51 nodo57}nodo51 -- nodo50
+nodo51 -- nodo45
+{rank=same;nodo51 nodo45}nodo57 -- nodo58
+nodo57 -- nodo63
+{rank=same;nodo57 nodo63}nodo57 -- nodo56
+nodo57 -- nodo51
+{rank=same;nodo57 nodo51}nodo63 -- nodo64
+nodo63 -- nodo69
+{rank=same;nodo63 nodo69}nodo63 -- nodo62
+nodo63 -- nodo57
+{rank=same;nodo63 nodo57}nodo69 -- nodo70
+nodo69 -- nodo68
+nodo69 -- nodo63
+{rank=same;nodo69 nodo63}nodo16 -- nodo20
+nodo16 -- nodo17
+{rank=same;nodo16 nodo17}nodo16 -- nodo12
+nodo17 -- nodo21
+nodo17 -- nodo18
+{rank=same;nodo17 nodo18}nodo17 -- nodo13
+nodo17 -- nodo16
+{rank=same;nodo17 nodo16}nodo18 -- nodo22
+nodo18 -- nodo19
+{rank=same;nodo18 nodo19}nodo18 -- nodo14
+nodo18 -- nodo17
+{rank=same;nodo18 nodo17}nodo19 -- nodo23
+nodo19 -- nodo28
+{rank=same;nodo19 nodo28}nodo19 -- nodo15
+nodo19 -- nodo18
+{rank=same;nodo19 nodo18}nodo28 -- nodo29
+nodo28 -- nodo34
+{rank=same;nodo28 nodo34}nodo28 -- nodo27
+nodo28 -- nodo19
+{rank=same;nodo28 nodo19}nodo34 -- nodo35
+nodo34 -- nodo40
+{rank=same;nodo34 nodo40}nodo34 -- nodo33
+nodo34 -- nodo28
+{rank=same;nodo34 nodo28}nodo40 -- nodo41
+nodo40 -- nodo46
+{rank=same;nodo40 nodo46}nodo40 -- nodo39
+nodo40 -- nodo34
+{rank=same;nodo40 nodo34}nodo46 -- nodo47
+nodo46 -- nodo52
+{rank=same;nodo46 nodo52}nodo46 -- nodo45
+nodo46 -- nodo40
+{rank=same;nodo46 nodo40}nodo52 -- nodo53
+nodo52 -- nodo58
+{rank=same;nodo52 nodo58}nodo52 -- nodo51
+nodo52 -- nodo46
+{rank=same;nodo52 nodo46}nodo58 -- nodo59
+nodo58 -- nodo64
+{rank=same;nodo58 nodo64}nodo58 -- nodo57
+nodo58 -- nodo52
+{rank=same;nodo58 nodo52}nodo64 -- nodo65
+nodo64 -- nodo70
+{rank=same;nodo64 nodo70}nodo64 -- nodo63
+nodo64 -- nodo58
+{rank=same;nodo64 nodo58}nodo70 -- nodo71
+nodo70 -- nodo69
+nodo70 -- nodo64
+{rank=same;nodo70 nodo64}nodo20 -- nodo21
+{rank=same;nodo20 nodo21}nodo20 -- nodo16
+nodo21 -- nodo22
+{rank=same;nodo21 nodo22}nodo21 -- nodo17
+nodo21 -- nodo20
+{rank=same;nodo21 nodo20}nodo22 -- nodo23
+{rank=same;nodo22 nodo23}nodo22 -- nodo18
+nodo22 -- nodo21
+{rank=same;nodo22 nodo21}nodo23 -- nodo29
+{rank=same;nodo23 nodo29}nodo23 -- nodo19
+nodo23 -- nodo22
+{rank=same;nodo23 nodo22}nodo29 -- nodo35
+{rank=same;nodo29 nodo35}nodo29 -- nodo28
+nodo29 -- nodo23
+{rank=same;nodo29 nodo23}nodo35 -- nodo41
+{rank=same;nodo35 nodo41}nodo35 -- nodo34
+nodo35 -- nodo29
+{rank=same;nodo35 nodo29}nodo41 -- nodo47
+{rank=same;nodo41 nodo47}nodo41 -- nodo40
+nodo41 -- nodo35
+{rank=same;nodo41 nodo35}nodo47 -- nodo53
+{rank=same;nodo47 nodo53}nodo47 -- nodo46
+nodo47 -- nodo41
+{rank=same;nodo47 nodo41}nodo53 -- nodo59
+{rank=same;nodo53 nodo59}nodo53 -- nodo52
+nodo53 -- nodo47
+{rank=same;nodo53 nodo47}nodo59 -- nodo65
+{rank=same;nodo59 nodo65}nodo59 -- nodo58
+nodo59 -- nodo53
+{rank=same;nodo59 nodo53}nodo65 -- nodo71
+{rank=same;nodo65 nodo71}nodo65 -- nodo64
+nodo65 -- nodo59
+{rank=same;nodo65 nodo59}nodo71 -- nodo70
+nodo71 -- nodo65
+{rank=same;nodo71 nodo65}}
